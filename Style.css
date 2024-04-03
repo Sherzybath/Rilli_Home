@@ -19,8 +19,9 @@ body {
   --tertiary-color: #2e2120;
   --quat-color: #254959;
   --fifth-color: #bd835f;
+  --sixth-color: #f6f5f5;
   --text-color: #d2a57c;
-  --text2-color: #f6f5f5;
+  --text2-color: #588ec7;
   --dot-color: #8451f6;
 }
 #main {
@@ -67,8 +68,9 @@ body {
   color: var(--secondary-color);
   transition: 0.4s;
 }
-.liner {
+#base .liner {
   display: flex;
+  flex-direction: row;
   gap: 50px;
 }
 #base h3 {
@@ -89,17 +91,52 @@ body {
 #home #desc {
   width: 100%;
   height: 900px;
-  padding: 9vw 20vw;
+  padding: 10vw 20vw;
 }
 .columner {
   display: flex;
   flex-direction: column;
+}
+#desc .columner {
+  width: 60%;
+  gap: 70px;
 }
 #desc h1 {
   font-size: 6vw;
   font-weight: 500;
   letter-spacing: -8px;
   line-height: 1;
-  color: var(--text2-color);
+  color: var(--text-color);
   transition: 0.4s;
+}
+.liner {
+  display: flex;
+  flex-direction: row;
+}
+#desc .liner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#desc h2 {
+  font-size: 1.6vw;
+  font-weight: 400;
+  letter-spacing: -0.08vw;
+  color: var(--text-color);
+  transition: 0.4s;
+}
+#placeH {
+  background-color: var(--tertiary-color);
+  width: 450px;
+  height: 450px;
+}
+#home #FeatR {
+  border-radius: 90px;
+  background-color: var(--sixth-color);
+  padding: 10vw 20vw;
+  width: 100%;
+}
+
+#FeatR .columner {
+  gap: 20px;
 }
