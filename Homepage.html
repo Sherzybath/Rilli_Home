@@ -16,16 +16,92 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
-    <div id="main">
+    <!-- login and signUp -->
+    <section>
+      <div class="box" id="signContainer">
+        <div class="myDiv" id="signUpForm">
+          <div class="tt">
+            <button class="divClose" onclick="changeZIndex(3)">
+              <i class="material-symbols-outlined"> close </i>
+            </button>
+          </div>
+          <form id="form1" class="forms">
+            <div class="heading">
+              <h3>Sign in to Rilli</h3>
+            </div>
+            <div class="enroll">
+              <h3>Enter your enrollment id</h3>
+              <input type="text" />
+            </div>
+            <div class="password">
+              <h3>Password</h3>
+              <input type="text" />
+            </div>
+            <div class="confirm">
+              <button class="submit">Sign In</button>
+            </div>
+          </form>
+          <div class="liner">
+            <h5>Already a member?</h5>
+            <div class="spacer"></div>
+            <button class="redirect" onclick="changeZIndex(5)">
+              <u>login</u>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="box" id="loginContainer">
+      <div class="myDiv" id="loginForm">
+        <div class="tt">
+          <button class="divClose" onclick="changeZIndex(4)">
+            <i class="material-symbols-outlined"> close </i>
+          </button>
+        </div>
+        <form id="form2" class="forms">
+          <div class="heading">
+            <h3>Login to Rilli</h3>
+          </div>
+          <div class="enroll">
+            <h3>Enter your enrollment id</h3>
+            <input type="text" />
+          </div>
+          <div class="password">
+            <h3>Password</h3>
+            <input type="text" />
+          </div>
+          <div class="confirm">
+            <button class="submit">Login</button>
+          </div>
+        </form>
+        <div class="liner">
+          <h5>Want to register?</h5>
+          <div class="spacer"></div>
+          <button class="redirect" onclick="changeZIndex(6)">
+            <u>Sign in</u>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <d iv id="main">
       <div id="nav" class="stick">
         <div id="left">
           <img src="./Assets/logo.png" alt="" />
         </div>
         <div id="right">
-          <button class="btn" id="signup">Sign up</button>
-          <button class="btn" id="login">Login</button>
+          <button class="btn" id="signup" onclick="changeZIndex(1)">
+            Sign up
+          </button>
+          <button class="btn" id="login" onclick="changeZIndex(2)">
+            Login
+          </button>
         </div>
       </div>
       <div id="home">
@@ -210,8 +286,30 @@
           </div>
         </div>
       </div>
-    </div>
+    </d>
 
     <script src="Formatting.js"></script>
+    <script>
+      function changeZIndex(boxNumber) {
+        var box1 = document.getElementById("signContainer");
+        var box2 = document.getElementById("loginContainer");
+
+        if (boxNumber === 1) {
+          box1.style.zIndex = 2; // Bring box 1 to the front
+        } else if (boxNumber === 2) {
+          box2.style.zIndex = 2; // Send box 1 to the back
+        } else if (boxNumber === 3) {
+          box1.style.zIndex = -1;
+        } else if (boxNumber === 4) {
+          box2.style.zIndex = -1;
+        } else if (boxNumber === 5) {
+          box1.style.zIndex = -1;
+          box2.style.zIndex = 2;
+        } else if (boxNumber === 6) {
+          box2.style.zIndex = -1;
+          box1.style.zIndex = 2;
+        }
+      }
+    </script>
   </body>
 </html>
