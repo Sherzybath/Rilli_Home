@@ -1,19 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap");
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   font-family: "Rubik", sans-serif;
-  color: var(--text-color);
+  color: var(--seventh-color);
 }
 html,
 body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  background-color: var(--main-color);
+}
+
+@font-face {
+  font-family: "Tombstone";
+  src: url("./Assets/Fonts/TombstoneBlues.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
@@ -27,6 +42,25 @@ body {
   --text-color: #d2a57c;
   --text2-color: #080a1a;
   --text3-color: #0088b5;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(2px);
+  transform: translateY(-15%);
+  transition: all 0.5s;
+}
+
+#base h1:nth-child(1) {
+  transition-delay: 300ms;
+}
+#base h1:nth-child(2) {
+  transition-delay: 900ms;
+}
+.show {
+  transform: translateY(0%);
+  opacity: 1;
+  filter: blur(0px);
 }
 #main {
   width: 100%;
@@ -61,38 +95,27 @@ body {
 }
 #home #base {
   width: 100%;
-  padding: 10vw 15vw;
+  height: 50vh;
+  padding: 0vw 15vw;
 }
-#base h1 {
-  font-size: 7vw;
-  font-weight: 500;
-  letter-spacing: -8px;
-  line-height: 1;
-  color: #c9c6cb;
+#base {
+  font-family: "Domine", serif;
+  margin-top: 75px;
+  margin-bottom: auto;
+  height: 14vw;
+  font-size: 14vw;
+  color: var(--seventh-color);
   transition: 0.4s;
+  text-align: center;
 }
 
-#base h2 {
-  font-size: 7vw;
-  font-weight: 500;
-  letter-spacing: -8px;
-  line-height: 1;
-  color: var(--secondary-color);
-  transition: 0.4s;
+#base h1 {
+  font-family: "Poppins", sans-serif;
 }
 #base .liner {
   display: flex;
   flex-direction: row;
-
   gap: 50px;
-}
-#base h3 {
-  font-size: 7vw;
-  font-weight: 500;
-  letter-spacing: -8px;
-  line-height: 1;
-  color: var(--quat-color);
-  transition: 0.4s;
 }
 #home #video {
   border-top-left-radius: 90px;
@@ -106,7 +129,7 @@ body {
 .btn {
   width: 100px;
   border-radius: 4px;
-  color: #d2a57c;
+  color: var(--seventh-color);
   background-color: transparent;
   font-size: 20px;
   font-weight: bolder;
@@ -138,7 +161,7 @@ body {
   font-weight: 500;
   letter-spacing: -8px;
   line-height: 1;
-  color: var(--text-color);
+  color: #9d559f;
   transition: 0.4s;
 }
 .liner {
@@ -154,7 +177,7 @@ body {
   font-size: 1.6vw;
   font-weight: 400;
   letter-spacing: -0.08vw;
-  color: var(--text-color);
+  color: #fab3ba;
   transition: 0.4s;
 }
 .placeH {
@@ -252,15 +275,30 @@ body {
 /* FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ */
 
 #home .faq {
-  padding: 10vw 20vw;
+  padding: 8vw 20vw;
   width: 100%;
 }
 
-.faq h2 {
-  text-align: center;
-  font-size: 70px;
+.faq .columner {
+  justify-content: flex-start;
+  gap: 0px;
 }
 
+.faq .columner h2 {
+  margin: none;
+  text-align: right;
+  font-size: 130px;
+  font-weight: 200;
+  font-family: "Tombstone";
+  color: var(--quat-color);
+}
+.faq .columner > h2:nth-child(2) {
+  margin-left: 300px;
+}
+
+.faq .columner h2:nth-child(3) {
+  margin-left: 150px;
+}
 #faq {
   margin-left: auto;
   margin-right: auto;
@@ -268,7 +306,7 @@ body {
   text-align: center;
 }
 
-section.faq {
+section .faq {
   padding-top: 2em;
   padding-bottom: 3em;
 }
@@ -342,10 +380,12 @@ ul li i:after {
   margin: 0;
 }
 #faq ul li {
+  border-radius: 10px;
   position: relative;
   overflow: hidden;
   padding: 0;
   margin: 0;
+  margin-bottom: 40px;
   background: #d6d2d0;
   box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.1);
   -webkit-tap-highlight-color: transparent;
@@ -366,7 +406,7 @@ ul li i:after {
 ul li i:after {
   content: "";
   position: absolute;
-  background-color: #cc071e;
+  background-color: #000000;
   width: 3px;
   height: 9px;
 }
@@ -402,17 +442,6 @@ ul li i:after {
   transform: translate(-2px, 0) rotate(-45deg);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
 #faq a,
 a:visited,
 a:focus,
@@ -427,19 +456,12 @@ a:link {
   transition: 0.2s ease-in-out;
 }
 
-#faq h1,
-h2,
-h3,
-h4 {
-  margin: 0.3em 0;
-}
-
-ul {
+#faq ul {
   padding: 0;
   list-style: none;
 }
 
-img {
+#faq img {
   vertical-align: middle;
   height: auto;
   width: 100%;
@@ -462,7 +484,7 @@ img {
 #SHeading > h1 {
   line-height: 1;
   text-decoration: none;
-  font-size: 5vw;
+  font-size: 7vw;
   font-weight: 400;
 }
 #SHeading > h1:nth-child(2) {
@@ -501,28 +523,28 @@ img {
   margin: 0;
   width: 100%;
   color: rgb(182, 182, 182);
+  font-family: "Poppins", sans-serif;
   background: linear-gradient(to right, #b6b6b6, #b6b6b6) no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   background-size: 0%;
   transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
-
   border-bottom: 1px solid #2f2b28;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   position: relative;
+  font-weight: 300;
 }
 
-span {
+.container span {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: var(--secondary-color);
   color: var(--text2-color);
-
+  font-family: "Poppins", sans-serif;
   clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
   transform-origin: center;
   transition: all cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s;
@@ -550,6 +572,7 @@ a {
   min-height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
 }
 .myDiv {
   top: 50%;
@@ -628,7 +651,8 @@ a {
 .forms input {
   color: var(--tertiary-color);
   width: 570px;
-  font-size: 36px;
+  height: 46px;
+  font-size: 26px;
   font-weight: 500;
   border-radius: 4px;
   border-radius: 10px;
@@ -641,6 +665,7 @@ a {
   width: 300px;
   height: 60px;
   color: white;
+  font-size: 20px;
 }
 
 #form1 h4 {
@@ -665,6 +690,7 @@ a {
 }
 .spacer {
   width: 5px;
+  height: 5px;
 }
 .myDiv .liner {
   padding-top: 25px;
@@ -678,4 +704,124 @@ a {
 form div h3 {
   font-size: 20px;
   color: #000;
+}
+
+/* Animation */
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 1000;
+}
+
+.loader-clip {
+  position: absolute;
+  width: 100vw;
+  height: 33.3vh;
+  overflow: clip;
+  z-index: 10000;
+}
+
+.clip-top {
+  top: 0;
+  clip-path: inset(0 0 0 0);
+  background-color: #fff;
+}
+
+.clip-top span,
+.clip-top .marquee-container,
+.clip-bottom span,
+.clip-bottom .marquee-container {
+  color: #000;
+}
+.clip-bottom {
+  bottom: 0;
+  clip-path: inset(0 0 0 0);
+  background-color: #fff;
+}
+
+.clip-center {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 33.3vh;
+  top: 33.3vh;
+  background-color: var(--main-color);
+}
+.clip-center .marquee-container {
+  color: var(--seventh-color);
+}
+.marquee {
+  position: absolute;
+  top: 200%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200vw;
+
+  font-size: 14vw;
+}
+
+.marquee-container {
+  width: 100%;
+  padding-top: 0.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Domine", serif;
+}
+
+.marquee-container span {
+  font-family: "Domine", serif;
+}
+
+/* SCROLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+/* SCROLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+/* SCROLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+/* SCROLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+
+#moving-text {
+  margin-top: 50px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+#moving-text::-webkit-scrollbar {
+  display: none;
+}
+
+.con {
+  white-space: nowrap;
+  display: inline-block;
+  animation-name: move;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#moving-text h1 {
+  font-weight: 500;
+  font-size: 7vw;
+  color: #ff7e76;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+}
+
+#gola {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #bd8df9;
+  margin: 1vw 2vw;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }

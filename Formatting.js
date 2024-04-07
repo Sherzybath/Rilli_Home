@@ -1,15 +1,16 @@
-import Reeller from "reeller";
-import gsap from "gsap";
-
-Reeller.registerGSAP(gsap);
-
-const reeller = new Reeller({
-  container: ".my-reel",
-  wrapper: ".my-reel-wrap",
-  itemSelector: ".my-reel-item",
-  speed: 10,
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry);
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show");
+    }
+  });
 });
 
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el) => observer.observe(el));
 const items = document.querySelectorAll(".accordion button");
 
 function toggleAccordion() {
@@ -25,19 +26,3 @@ function toggleAccordion() {
 }
 
 items.forEach((item) => item.addEventListener("click", toggleAccordion));
-gsap.registerPlugin(ScrollTrigger);
-
-const textElements = gsap.utils.toArray(".text");
-
-textElements.forEach((text) => {
-  gsap.to(text, {
-    backgroundSize: "100%",
-    ease: "none",
-    scrollTrigger: {
-      trigger: text,
-      start: "center 80%",
-      end: "center 20%",
-      scrub: true,
-    },
-  });
-});
