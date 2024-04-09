@@ -580,7 +580,7 @@ a {
   transform: translate(-50%, -50%);
   width: 700px;
   height: 1000px;
-  background-color: #e3e4e7;
+  background-color: #d1cfc8;
   position: absolute;
   border-radius: 20px;
   display: flex;
@@ -590,7 +590,7 @@ a {
 .tt {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  background-color: #b6b6b6;
+  background-color: #babbba;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -633,19 +633,17 @@ a {
   flex-grow: 1;
   padding-top: 3vw;
   padding-bottom: 0vw;
+  gap: 10px;
 }
-.forms {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+
 .forms .heading {
   width: 100%;
   padding-left: 67px;
 }
 .forms .heading h3 {
   color: var(--tertiary-color);
-  font-size: 46px;
+  /* color: #fff; */
+  font-size: 70px;
   font-weight: 800;
 }
 .forms input {
@@ -659,7 +657,7 @@ a {
 }
 
 .confirm .submit {
-  background-color: #c2453c;
+  background-color: #9c28b1;
   border-radius: 14px;
   text-align: center;
   width: 300px;
@@ -668,12 +666,21 @@ a {
   font-size: 20px;
 }
 
+.enroll input {
+  background-color: #f1e5f2;
+}
+
+.password input {
+  background-color: #f1e5f2;
+}
+
 #form1 h4 {
   color: var(--tertiary-color);
   font-weight: 800;
   font-size: 17px;
 }
 .myDiv .liner h5 {
+  margin-top: 0;
   font-size: 16px;
   font-weight: 400;
   color: var(--tertiary-color);
