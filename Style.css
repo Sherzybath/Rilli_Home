@@ -187,7 +187,7 @@ body {
   border-radius: 40px;
 }
 #desc .placeH {
-  background-color: var(--tertiary-color);
+  background-color: var(--secondary-color);
   width: 450px;
   height: 450px;
   border-radius: 40px;
@@ -809,7 +809,8 @@ form div h3 {
 #moving-text h1 {
   font-weight: 500;
   font-size: 7vw;
-  color: #ff7e76;
+  /* color: #ff7e76; */
+  color: #c9c6cb;
   display: inline-block;
   font-family: "Poppins", sans-serif;
 }
@@ -819,7 +820,7 @@ form div h3 {
   width: 60px;
   border-radius: 50%;
   display: inline-block;
-  background-color: #bd8df9;
+  background-color: var(--text3-color);
   margin: 1vw 2vw;
 }
 
